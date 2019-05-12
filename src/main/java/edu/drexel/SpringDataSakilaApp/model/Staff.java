@@ -56,6 +56,11 @@ public class Staff {
 		
 	}
 	
+	public Staff(String string, String string2, int i, String string3, Object object, int j, int k, String string4,
+			String string5, Object object2) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getStaffId() {
 		return staffId;
 	}
