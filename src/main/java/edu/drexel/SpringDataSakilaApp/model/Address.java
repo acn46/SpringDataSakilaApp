@@ -4,36 +4,54 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
 /**
  * VO/DTO for address
  * @author AlanN
  *
  */
+
+@Entity(name="Address")
+@Table(name="address")
+@NamedQuery(name="Address.findAll", query="SELECT a FROM Address a")
 public class Address {
 	private static Map<Integer, Address> ALL_ADDRESS_MAP = new HashMap<>();
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="address_id")
 	private int id;
+	
+	@Column(name="address")
 	private String address;
+	
+	@Column(name="address2")
 	private String address2;
+	
+	@Column(name="district")
 	private String district;
+	
+	@Column(name="city_id")
 	private int cityId;
+	
+	@Column(name="postal_code")
 	private String postalCode;
+	
+	@Column(name="phone")
 	private String phone;
+	
+	@Column(name="location")
 	private String location;
+	
+	@Column(name="last_update")
 	private Date lastUpdate;
-
-	public Address(String address, String address2, String district, int cityId, String postalCode,
-			String phone, String location, Date lastUpdate) {
-		super();
-		this.address = address;
-		this.address2 = address2;
-		this.district = district;
-		this.cityId = cityId;
-		this.postalCode = postalCode;
-		this.phone = phone;
-		this.location = location;
-		this.lastUpdate = lastUpdate;
-	}
 
 	public Address() {
 		// TODO Auto-generated constructor stub

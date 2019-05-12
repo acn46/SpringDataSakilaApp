@@ -1,13 +1,11 @@
 package edu.drexel.SpringDataSakilaApp.repo;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import edu.drexel.SpringDataSakilaApp.model.Address;
 
-public interface AddressRepo {
-	List<Address> getAll();
-	Address findByID(int id);
-	int insert(Address address);
-	int update(Address address);
-	int delete(int id);
+@Repository
+public interface AddressRepo extends JpaRepository<Address, Integer>{
+	
 }

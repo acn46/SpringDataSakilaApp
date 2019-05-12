@@ -1,5 +1,12 @@
 package edu.drexel.SpringDataSakilaApp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+@Entity(name="Address")
+@Table(name="address")
+@NamedQuery(name="Address.findAll", query="SELECT a FROM Address a")
 public class BankAccount {
 	
 	public BankAccount(int accountId, String accountType, double balance) {

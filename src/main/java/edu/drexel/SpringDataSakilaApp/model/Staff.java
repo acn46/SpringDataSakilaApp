@@ -2,35 +2,54 @@ package edu.drexel.SpringDataSakilaApp.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+
+@Entity(name="Staff")
+@Table(name="staff")
+@NamedQuery(name="Staff.findAll", query="SELECT s FROM Staff s")
 public class Staff {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="staff_id")
 	private int staffId;
-	private String firstName;
-	private String lastName;
-	private int addressId;
-	private String picture;
-	private String email;
-	private int storeId;
-	private int active;
-	private String username;
-	private String password;
-	private Date lastUpdate;
 	
-	public Staff(String firstName, String lastName, int addressId, String picture, String email,
-			int storeId, int active, String username, String password, Date lastUpdate) {
-		super();
-		this.staffId = staffId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.addressId = addressId;
-		this.picture = picture;
-		this.email = email;
-		this.storeId = storeId;
-		this.active = active;
-		this.username = username;
-		this.password = password;
-		this.lastUpdate = lastUpdate;
-	}
+	@Column(name="first_name")
+	private String firstName;
+	
+	@Column(name="last_name")
+	private String lastName;
+	
+	@Column(name="address_id")
+	private int addressId;
+	
+	@Column(name="picture")
+	private String picture;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="storei_id")
+	private int storeId;
+	
+	@Column(name="active")
+	private int active;
+	
+	@Column(name="username")
+	private String username;
+	
+	@Column(name="password")
+	private String password;
+	
+	@Column(name="last_update")
+	private Date lastUpdate;
 	
 	public Staff() {
 		
