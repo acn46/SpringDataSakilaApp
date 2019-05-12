@@ -1,16 +1,23 @@
-package edu.drexel.SpringDataSakilaApp.domain;
+package edu.drexel.SpringDataSakilaApp.model;
 
 /**
- * A Singleton class.
+ * A one-instance-per-thread class.
+ * (singleton per thread).
  * @author AlanN
  *
  */
-public class MySingle {
+public class MyOnePerThread {
 	
-	private static final MySingle INSTANCE = new MySingle();
+	private static final ThreadLocal<MyOnePerThread> INSTANCE_POOL = new ThreadLocal() {
+		@Override
+		protected MyOnePerThread initialValue() {
+			System.out.println(Thread.currentThread().getName() + " - creating the instance for the thread.");
+	        return (new MyOnePerThread());
+	    }
+	};
 	
-	public static MySingle getInstance() {
-		return INSTANCE;
+	public static MyOnePerThread getInstance() {
+		return INSTANCE_POOL.get();
 	}
 	
 	
@@ -18,13 +25,13 @@ public class MySingle {
 	private String firstName;
 	private String lastName;
 	
-	private MySingle() {
+	private MyOnePerThread() {
 		//
 	}
 	
 	@Override
 	public String toString() {
-		return "MySingle [staffId=" + staffId + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "MyOnePerThread [staffId=" + staffId + ", firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 	
 	@Override
@@ -45,7 +52,7 @@ public class MySingle {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		MySingle other = (MySingle) obj;
+		MyOnePerThread other = (MyOnePerThread) obj;
 		if (firstName == null) {
 			if (other.firstName != null)
 				return false;

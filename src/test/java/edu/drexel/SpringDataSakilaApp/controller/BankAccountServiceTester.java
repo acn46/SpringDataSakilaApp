@@ -1,4 +1,4 @@
-package edu.drexel.SpringDataSakilaApp.service;
+package edu.drexel.SpringDataSakilaApp.controller;
 
 import static org.junit.Assert.assertTrue;
 

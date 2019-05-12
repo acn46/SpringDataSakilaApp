@@ -1,33 +1,16 @@
-package edu.drexel.SpringDataSakilaApp.domain;
-
-import java.util.ArrayList;
-import java.util.List;
+package edu.drexel.SpringDataSakilaApp.model;
 
 /**
  * A Singleton class.
  * @author AlanN
  *
  */
-public class MyFactory {
+public class MySingle {
 	
-	private static final int poolSize = 7;
-	private static final MyFactory[] INSTANCE_POOL = new MyFactory[poolSize];
-	private static int kounter = 0;
+	private static final MySingle INSTANCE = new MySingle();
 	
-	public static MyFactory getInstance() {
-		int index = kounter % poolSize;
-		MyFactory instance = INSTANCE_POOL[index];
-		if (instance == null) {
-			System.out.println("kounter="+kounter+" - creating a new instance.");
-			instance = new MyFactory();
-			INSTANCE_POOL[index] = instance;
-		} else {
-			System.out.println("kounter="+kounter+" - return existing instance.");
-		}
-		
-		kounter++;
-		
-		return instance;
+	public static MySingle getInstance() {
+		return INSTANCE;
 	}
 	
 	
@@ -35,7 +18,7 @@ public class MyFactory {
 	private String firstName;
 	private String lastName;
 	
-	private MyFactory() {
+	private MySingle() {
 		//
 	}
 	
@@ -62,7 +45,7 @@ public class MyFactory {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		MyFactory other = (MyFactory) obj;
+		MySingle other = (MySingle) obj;
 		if (firstName == null) {
 			if (other.firstName != null)
 				return false;

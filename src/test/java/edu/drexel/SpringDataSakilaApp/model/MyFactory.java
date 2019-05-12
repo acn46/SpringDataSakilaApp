@@ -1,23 +1,33 @@
-package edu.drexel.SpringDataSakilaApp.domain;
+package edu.drexel.SpringDataSakilaApp.model;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * A one-instance-per-thread class.
- * (singleton per thread).
+ * A Singleton class.
  * @author AlanN
  *
  */
-public class MyOnePerThread {
+public class MyFactory {
 	
-	private static final ThreadLocal<MyOnePerThread> INSTANCE_POOL = new ThreadLocal() {
-		@Override
-		protected MyOnePerThread initialValue() {
-			System.out.println(Thread.currentThread().getName() + " - creating the instance for the thread.");
-	        return (new MyOnePerThread());
-	    }
-	};
+	private static final int poolSize = 7;
+	private static final MyFactory[] INSTANCE_POOL = new MyFactory[poolSize];
+	private static int kounter = 0;
 	
-	public static MyOnePerThread getInstance() {
-		return INSTANCE_POOL.get();
+	public static MyFactory getInstance() {
+		int index = kounter % poolSize;
+		MyFactory instance = INSTANCE_POOL[index];
+		if (instance == null) {
+			System.out.println("kounter="+kounter+" - creating a new instance.");
+			instance = new MyFactory();
+			INSTANCE_POOL[index] = instance;
+		} else {
+			System.out.println("kounter="+kounter+" - return existing instance.");
+		}
+		
+		kounter++;
+		
+		return instance;
 	}
 	
 	
@@ -25,13 +35,13 @@ public class MyOnePerThread {
 	private String firstName;
 	private String lastName;
 	
-	private MyOnePerThread() {
+	private MyFactory() {
 		//
 	}
 	
 	@Override
 	public String toString() {
-		return "MyOnePerThread [staffId=" + staffId + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+		return "MySingle [staffId=" + staffId + ", firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 	
 	@Override
@@ -52,7 +62,7 @@ public class MyOnePerThread {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		MyOnePerThread other = (MyOnePerThread) obj;
+		MyFactory other = (MyFactory) obj;
 		if (firstName == null) {
 			if (other.firstName != null)
 				return false;

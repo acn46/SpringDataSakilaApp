@@ -1,4 +1,4 @@
-package edu.drexel.SpringDataSakilaApp.domain;
+package edu.drexel.SpringDataSakilaApp.model;
 
 public class Lynx extends Cat implements CanSPeak {
 	
