@@ -1,8 +1,8 @@
-package edu.drexel.repo;
+package edu.drexel.SpringDataSakilaApp.repo;
 
 import java.util.List;
 
-import edu.drexel.domain.Address;
+import edu.drexel.SpringDataSakilaApp.model.Address;
 
 public interface AddressRepo {
 	List<Address> getAll();

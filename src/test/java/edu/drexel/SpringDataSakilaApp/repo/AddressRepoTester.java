@@ -1,4 +1,4 @@
-package edu.drexel.repo;
+package edu.drexel.SpringDataSakilaApp.repo;
 
 import static org.junit.Assert.*;
 
@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import edu.drexel.domain.Address;
-import edu.drexel.repo.AddressRepo;
-import edu.drexel.repo.AddressRepoImpl;
+import edu.drexel.SpringDataSakilaApp.model.Address;
+import edu.drexel.SpringDataSakilaApp.repo.AddressRepo;
+import edu.drexel.SpringDataSakilaApp.repo.AddressRepoImpl;
 
 public class AddressRepoTester {
 

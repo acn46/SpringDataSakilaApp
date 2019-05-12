@@ -1,4 +1,4 @@
-package edu.drexel.repo;
+package edu.drexel.SpringDataSakilaApp.repo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import edu.drexel.domain.BankAccount;
+import edu.drexel.SpringDataSakilaApp.model.BankAccount;
 
 public class BankAccountRepoImpl extends AbstractRepoImpl<BankAccount> implements BankAccountRepo {
 

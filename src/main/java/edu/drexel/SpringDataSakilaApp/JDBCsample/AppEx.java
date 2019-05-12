@@ -1,4 +1,4 @@
-package edu.drexel.JdbcSample;
+package edu.drexel.SpringDataSakilaApp.JDBCsample;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +11,9 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
-import edu.drexel.domain.BankAccount;
-import edu.drexel.repo.BankAccountRepo;
-import edu.drexel.repo.BankAccountRepoImpl;
+import edu.drexel.SpringDataSakilaApp.model.BankAccount;
+import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepo;
+import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepoImpl;
 
 /**
  * JdbcSample app.

@@ -1,4 +1,4 @@
-package edu.drexel.domain;
+package edu.drexel.SpringDataSakilaApp.model;
 
 import java.util.Date;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package edu.drexel.repo;
+package edu.drexel.SpringDataSakilaApp.repo;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

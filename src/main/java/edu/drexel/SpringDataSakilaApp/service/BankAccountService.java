@@ -1,4 +1,4 @@
-package edu.drexel.sakila.service;
+package edu.drexel.SpringDataSakilaApp.service;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-import edu.drexel.domain.BankAccount;
-import edu.drexel.repo.BankAccountRepo;
-import edu.drexel.repo.BankAccountRepoImpl;
+import edu.drexel.SpringDataSakilaApp.model.BankAccount;
+import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepo;
+import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepoImpl;
 
 @Path("/bankaccounts")
 public class BankAccountService {

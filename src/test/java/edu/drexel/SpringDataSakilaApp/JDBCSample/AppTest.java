@@ -1,4 +1,4 @@
-package edu.drexel.JdbcSample;
+package edu.drexel.SpringDataSakilaApp.JDBCSample;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

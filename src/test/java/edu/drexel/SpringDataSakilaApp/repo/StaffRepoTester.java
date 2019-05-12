@@ -1,4 +1,4 @@
-package edu.drexel.repo;
+package edu.drexel.SpringDataSakilaApp.repo;
 
 import static org.junit.Assert.assertTrue;
 
@@ -6,9 +6,9 @@ import java.util.List;
 
 import org.junit.Test;
 
-import edu.drexel.domain.Staff;
-import edu.drexel.repo.StaffRepo;
-import edu.drexel.repo.StaffRepoImpl;
+import edu.drexel.SpringDataSakilaApp.model.Staff;
+import edu.drexel.SpringDataSakilaApp.repo.StaffRepo;
+import edu.drexel.SpringDataSakilaApp.repo.StaffRepoImpl;
 
 public class StaffRepoTester {
 

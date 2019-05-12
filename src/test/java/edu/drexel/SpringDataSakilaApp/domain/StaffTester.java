@@ -1,4 +1,4 @@
-package edu.drexel.domain;
+package edu.drexel.SpringDataSakilaApp.domain;
 
 import static org.junit.Assert.*;
 
@@ -7,7 +7,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import edu.drexel.domain.Staff;
+import edu.drexel.SpringDataSakilaApp.model.Staff;
 
 public class StaffTester {
 

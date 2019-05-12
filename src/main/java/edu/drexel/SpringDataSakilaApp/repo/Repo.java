@@ -1,4 +1,4 @@
-package edu.drexel.repo;
+package edu.drexel.SpringDataSakilaApp.repo;
 
 import java.util.List;
 

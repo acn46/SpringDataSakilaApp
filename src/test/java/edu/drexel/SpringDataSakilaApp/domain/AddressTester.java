@@ -1,10 +1,10 @@
-package edu.drexel.domain;
+package edu.drexel.SpringDataSakilaApp.domain;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import edu.drexel.domain.Address;
+import edu.drexel.SpringDataSakilaApp.model.Address;
 
 public class AddressTester {
 

@@ -1,4 +1,4 @@
-package edu.drexel.domain;
+package edu.drexel.SpringDataSakilaApp.domain;
 
 import java.util.ArrayList;
 import java.util.List;

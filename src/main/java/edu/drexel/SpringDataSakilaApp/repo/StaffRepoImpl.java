@@ -1,11 +1,11 @@
-package edu.drexel.repo;
+package edu.drexel.SpringDataSakilaApp.repo;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import edu.drexel.domain.Staff;
+import edu.drexel.SpringDataSakilaApp.model.Staff;
 
 public class StaffRepoImpl extends AbstractRepoImpl<Staff> implements StaffRepo{
 

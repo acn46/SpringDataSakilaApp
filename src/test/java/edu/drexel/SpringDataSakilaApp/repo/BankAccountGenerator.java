@@ -1,8 +1,10 @@
-package edu.drexel.repo;
+package edu.drexel.SpringDataSakilaApp.repo;
 
 import static org.junit.Assert.assertTrue;
 
-import edu.drexel.domain.BankAccount;
+import edu.drexel.SpringDataSakilaApp.model.BankAccount;
+import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepo;
+import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepoImpl;
 
 public class BankAccountGenerator {
 

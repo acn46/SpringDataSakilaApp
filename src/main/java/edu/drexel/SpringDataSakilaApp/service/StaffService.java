@@ -1,4 +1,4 @@
-package edu.drexel.sakila.service;
+package edu.drexel.SpringDataSakilaApp.service;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-import edu.drexel.domain.Staff;
-import edu.drexel.repo.StaffRepo;
-import edu.drexel.repo.StaffRepoImpl;
+import edu.drexel.SpringDataSakilaApp.model.Staff;
+import edu.drexel.SpringDataSakilaApp.repo.StaffRepo;
+import edu.drexel.SpringDataSakilaApp.repo.StaffRepoImpl;
 
 @Path("/staffs")
 public class StaffService {

@@ -1,4 +1,4 @@
-package edu.drexel.domain;
+package edu.drexel.SpringDataSakilaApp.domain;
 
 public class Cat implements CanSPeak{
 	public String petName;

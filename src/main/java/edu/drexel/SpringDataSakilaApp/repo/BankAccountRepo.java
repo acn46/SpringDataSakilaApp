@@ -1,8 +1,8 @@
-package edu.drexel.repo;
+package edu.drexel.SpringDataSakilaApp.repo;
 
 import java.util.List;
 
-import edu.drexel.domain.BankAccount;
+import edu.drexel.SpringDataSakilaApp.model.BankAccount;
 
 public interface BankAccountRepo {
 	List<BankAccount> getAll();

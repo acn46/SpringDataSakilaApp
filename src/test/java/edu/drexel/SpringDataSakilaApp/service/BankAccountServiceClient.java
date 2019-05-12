@@ -1,4 +1,4 @@
-package edu.drexel.sakila.service;
+package edu.drexel.SpringDataSakilaApp.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;

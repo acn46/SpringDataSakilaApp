@@ -1,4 +1,4 @@
-package edu.drexel.sakila.service;
+package edu.drexel.SpringDataSakilaApp.service;
 
 import static org.junit.Assert.assertTrue;
 
@@ -6,7 +6,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import edu.drexel.domain.Staff;
+import edu.drexel.SpringDataSakilaApp.model.Staff;
+import edu.drexel.SpringDataSakilaApp.service.StaffService;
 
 public class StaffServiceTester {
 

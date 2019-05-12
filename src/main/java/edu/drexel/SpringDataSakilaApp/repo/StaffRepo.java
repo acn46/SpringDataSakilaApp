@@ -1,8 +1,8 @@
-package edu.drexel.repo;
+package edu.drexel.SpringDataSakilaApp.repo;
 
 import java.util.List;
 
-import edu.drexel.domain.Staff;
+import edu.drexel.SpringDataSakilaApp.model.Staff;
 
 public interface StaffRepo {
 	List<Staff> getAll();
