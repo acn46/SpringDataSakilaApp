@@ -1,5 +1,6 @@
 package edu.drexel.SpringDataSakilaApp.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,8 +22,9 @@ import javax.persistence.Table;
 @Entity(name="Address")
 @Table(name="address")
 @NamedQuery(name="Address.findAll", query="SELECT a FROM Address a")
-public class Address {
-	private static Map<Integer, Address> ALL_ADDRESS_MAP = new HashMap<>();
+public class Address implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -57,14 +59,6 @@ public class Address {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static void updateCache(Address address) {
-		ALL_ADDRESS_MAP.put(address.getId(), address);
-	}
-	
-	public static Address getAddress(int id) {
-		return ALL_ADDRESS_MAP.get(id);
-	}
-	
 	public int getId() {
 		return id;
 	}

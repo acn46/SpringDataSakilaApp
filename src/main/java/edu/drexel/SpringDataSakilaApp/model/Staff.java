@@ -36,7 +36,7 @@ public class Staff {
 	@Column(name="email")
 	private String email;
 	
-	@Column(name="storei_id")
+	@Column(name="store_id")
 	private int storeId;
 	
 	@Column(name="active")
