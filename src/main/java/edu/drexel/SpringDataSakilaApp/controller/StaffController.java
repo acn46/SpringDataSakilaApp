@@ -1,6 +1,7 @@
 package edu.drexel.SpringDataSakilaApp.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -10,17 +11,23 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import edu.drexel.SpringDataSakilaApp.model.Staff;
 import edu.drexel.SpringDataSakilaApp.service.StaffService;
 
-@Path("/staffs")
+@RestController
 public class StaffController {
 	
 	@Autowired
 	private StaffService service;
 	
-	@GET
+	@GetMapping("/staffs")
 	public List<Staff> getAll() {
 		System.out.println("\nin getAll");
 		List<Staff> list = service.getAll();
@@ -28,33 +35,31 @@ public class StaffController {
 
 	}
 	
-	@GET
-	@Path("/{id}")
-	public Staff findByID(@PathParam("id") int id) {
-		System.out.println("\nin findByID");
-		Staff staff = service.findById(id);
-		return staff;
+	@GetMapping("/staff/{id}")
+	public Staff findByID(@PathVariable("id") int id) {
+		System.out.println("\nin findByID "+id);
+		Optional<Staff> returnValue = service.findById(id);
+		return returnValue.get();
 	}
 	
-	@PUT
-	public int insert(Staff staff) {
-		System.out.println("\nin Insert");
-		//Staff staff = new Staff("John", "Doe", 1, "John@compmail.com", null, 2, 1, "JDoe", "dwe23321", null);
-		int staffId = service.insert(staff);
-		return staffId;
-	}
+//	@PostMapping
+//	public int insert(@RequestBody Staff staff) {
+//		System.out.println("\nin Insert");
+//		//Staff staff = new Staff("John", "Doe", 1, "John@compmail.com", null, 2, 1, "JDoe", "dwe23321", null);
+//		int staffId = service.insert(staff);
+//		return staffId;
+//	}
+//	
+//	@PostMapping
+//	public int update(@RequestBody Staff staff) {
+//		System.out.println("\nin update");
+//		//Staff staff = new Staff("John1", "Doe", 1, "John@compmail.com", null, 2, 1, "JDoe", "dwe23321", null);
+//		//staff.setStaffId(10);
+//		int rowAffected = service.update(staff);
+//		return rowAffected;
+//	}
 	
-	@POST
-	public int update(Staff staff) {
-		System.out.println("\nin update");
-		//Staff staff = new Staff("John1", "Doe", 1, "John@compmail.com", null, 2, 1, "JDoe", "dwe23321", null);
-		//staff.setStaffId(10);
-		int rowAffected = service.update(staff);
-		return rowAffected;
-	}
-	
-	@DELETE
-	@Path("/{id}")
+	@DeleteMapping("/staff/{id}")
 	public int delete(@PathParam("id") int id) {
 		System.out.println("\nin delete");
 		int rowAffected = service.delete(id);
