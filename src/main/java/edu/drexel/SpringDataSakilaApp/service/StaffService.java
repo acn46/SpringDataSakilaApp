@@ -2,8 +2,11 @@ package edu.drexel.SpringDataSakilaApp.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import edu.drexel.SpringDataSakilaApp.model.Staff;
 
+@Service
 public class StaffService {
 
 	public List<Staff> getAll() {
