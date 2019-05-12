@@ -6,15 +6,15 @@ import java.util.List;
 
 import org.junit.Test;
 
+import edu.drexel.SpringDataSakilaApp.controller.BankAccountController;
 import edu.drexel.SpringDataSakilaApp.model.BankAccount;
-import edu.drexel.SpringDataSakilaApp.service.BankAccountService;
 
 public class BankAccountServiceTester {
 	
 	@Test
 	public void test_getAll() {
 		System.out.println("\ntest getAll");
-		BankAccountService svc = new BankAccountService();
+		BankAccountController svc = new BankAccountController();
 		List<BankAccount> list = svc .getAll();
 		System.out.println("# of rows " + list.size());
 		for (BankAccount bankAccount : list) {
@@ -26,7 +26,7 @@ public class BankAccountServiceTester {
 	@Test
 	public void test_findByID() {
 		System.out.println("\ntest findByID");
-		BankAccountService svc = new BankAccountService();
+		BankAccountController svc = new BankAccountController();
 		BankAccount bankAccount = svc.findByID(1);
 		System.out.println(bankAccount);
 		assertTrue(bankAccount != null && bankAccount.getAccountId() == 1);
@@ -35,7 +35,7 @@ public class BankAccountServiceTester {
 	@Test
 	public void test_findByID_notFound() {
 		System.out.println("\ntest findbyID_notFound");
-		BankAccountService svc = new BankAccountService();
+		BankAccountController svc = new BankAccountController();
 		BankAccount bankAccount = svc.findByID(-1);
 		System.out.println(bankAccount);
 		assertTrue(bankAccount == null);
@@ -44,7 +44,7 @@ public class BankAccountServiceTester {
 	@Test
 	public void test_insert() {
 		System.out.println("\ntest Insert");
-		BankAccountService svc = new BankAccountService();
+		BankAccountController svc = new BankAccountController();
 		BankAccount bankAccount = new BankAccount(5, "checking", 13321.22);
 		int bankAccountId = svc.insert(bankAccount);
 		System.out.println(bankAccountId);
@@ -54,7 +54,7 @@ public class BankAccountServiceTester {
 	@Test
 	public void test_update() {
 		System.out.println("\ntest update");
-		BankAccountService svc = new BankAccountService();
+		BankAccountController svc = new BankAccountController();
 		BankAccount bankAccount = new BankAccount(4, "checking", 10000);
 		bankAccount.setAccountId(5);
 		int rowAffected = svc.update(bankAccount);
@@ -65,7 +65,7 @@ public class BankAccountServiceTester {
 	@Test
 	public void test_delete() {
 		System.out.println("\ntest delete");
-		BankAccountService svc = new BankAccountService();
+		BankAccountController svc = new BankAccountController();
 		int rowAffected = svc.delete(4);
 		System.out.println(rowAffected);
 		//assertTrue(rowAffected == 1);
@@ -74,7 +74,7 @@ public class BankAccountServiceTester {
 	@Test
 	public void test_transfer() {
 		System.out.println("\ntest transfer");
-		BankAccountService svc = new BankAccountService();
+		BankAccountController svc = new BankAccountController();
 		svc.transfer(4000, 5, 1);
 
 	}

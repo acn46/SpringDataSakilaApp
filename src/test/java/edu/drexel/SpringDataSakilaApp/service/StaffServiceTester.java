@@ -6,15 +6,15 @@ import java.util.List;
 
 import org.junit.Test;
 
+import edu.drexel.SpringDataSakilaApp.controller.StaffController;
 import edu.drexel.SpringDataSakilaApp.model.Staff;
-import edu.drexel.SpringDataSakilaApp.service.StaffService;
 
 public class StaffServiceTester {
 
 	@Test
 	public void test_getAll() {
 		System.out.println("\ntest getAll");
-		StaffService svc = new StaffService();
+		StaffController svc = new StaffController();
 		List<Staff> list = svc.getAll();
 		System.out.println("# of rows " + list.size());
 		for (Staff staff : list) {
@@ -26,7 +26,7 @@ public class StaffServiceTester {
 	@Test
 	public void test_findByID() {
 		System.out.println("\ntest findByID");
-		StaffService svc = new StaffService();
+		StaffController svc = new StaffController();
 		Staff staff = svc.findByID(1);
 		System.out.println(staff);
 		assertTrue(staff != null && staff.getStaffId() == 1);
@@ -35,7 +35,7 @@ public class StaffServiceTester {
 	@Test
 	public void test_insert() {
 		System.out.println("\ntest Insert");
-		StaffService svc = new StaffService();
+		StaffController svc = new StaffController();
 		Staff staff = new Staff("John", "Doe", 1, "John@compmail.com", null, 2, 1, "JDoe", "dwe23321", null);
 		int staffId = svc.insert(staff);
 		System.out.println(staffId);
@@ -45,7 +45,7 @@ public class StaffServiceTester {
 	@Test
 	public void test_update() {
 		System.out.println("\ntest update");
-		StaffService svc = new StaffService();
+		StaffController svc = new StaffController();
 		Staff staff = new Staff("John1", "Doe", 1, "John@compmail.com", null, 2, 1, "JDoe", "dwe23321", null);
 		staff.setStaffId(10);
 		int rowAffected = svc.update(staff);
@@ -56,7 +56,7 @@ public class StaffServiceTester {
 	@Test
 	public void test_delete() {
 		System.out.println("\ntest delete");
-		StaffService svc = new StaffService();
+		StaffController svc = new StaffController();
 		int rowAffected = svc.delete(5);
 		System.out.println(rowAffected);
 		//assertTrue(rowAffected == 1);

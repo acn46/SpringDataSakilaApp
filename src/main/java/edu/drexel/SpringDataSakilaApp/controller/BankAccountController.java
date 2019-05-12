@@ -1,4 +1,4 @@
-package edu.drexel.SpringDataSakilaApp.service;
+package edu.drexel.SpringDataSakilaApp.controller;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepo;
 import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepoImpl;
 
 @Path("/bankaccounts")
-public class BankAccountService {
+public class BankAccountController {
 	
 	@GET
 	public List<BankAccount> getAll() {
