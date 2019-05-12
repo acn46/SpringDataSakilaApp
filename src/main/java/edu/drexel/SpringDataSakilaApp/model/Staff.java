@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 @Entity(name="Staff")
 @Table(name="staff")
@@ -56,9 +58,20 @@ public class Staff {
 		
 	}
 	
-	public Staff(String string, String string2, int i, String string3, Object object, int j, int k, String string4,
-			String string5, Object object2) {
+	@Autowired
+	public Staff(String firstName, String lastName, int addressId, String picture, String email, int storeId, int active, String username,
+			String password, Date lastUpdate) {
 		// TODO Auto-generated constructor stub
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.addressId = addressId;
+		this.picture = picture;
+		this.email = email;
+		this.storeId = storeId;
+		this.active = active;
+		this.username = username;
+		this.password = password;
+		this.lastUpdate = lastUpdate;
 	}
 
 	public int getStaffId() {

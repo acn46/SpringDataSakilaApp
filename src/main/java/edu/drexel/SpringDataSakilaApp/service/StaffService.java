@@ -24,14 +24,14 @@ public class StaffService {
 		return repo.findById(id);
 	}
 
-	public int insert(Staff staff) {
+	public Staff insert(Staff staff) {
 		// TODO Auto-generated method stub
-		return 0;
+		return repo.save(staff);
 	}
 
-	public int update(Staff staff) {
+	public Staff update(Staff staff) {
 		// TODO Auto-generated method stub
-		return 0;
+		return repo.save(staff);
 	}
 
 	public int delete(int id) {

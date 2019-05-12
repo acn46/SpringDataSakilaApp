@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.drexel.SpringDataSakilaApp.model.Staff;
@@ -42,22 +43,22 @@ public class StaffController {
 		return returnValue.get();
 	}
 	
-//	@PostMapping
-//	public int insert(@RequestBody Staff staff) {
-//		System.out.println("\nin Insert");
-//		//Staff staff = new Staff("John", "Doe", 1, "John@compmail.com", null, 2, 1, "JDoe", "dwe23321", null);
-//		int staffId = service.insert(staff);
-//		return staffId;
-//	}
-//	
-//	@PostMapping
-//	public int update(@RequestBody Staff staff) {
-//		System.out.println("\nin update");
-//		//Staff staff = new Staff("John1", "Doe", 1, "John@compmail.com", null, 2, 1, "JDoe", "dwe23321", null);
-//		//staff.setStaffId(10);
-//		int rowAffected = service.update(staff);
-//		return rowAffected;
-//	}
+	@PostMapping("/staff/insert")
+	public @ResponseBody int insert(@RequestBody Staff staff) {
+		System.out.println("\nin Insert");
+		//Staff newStaff = new Staff("John", "Doe", 1, "", "John@compmail.com", 2, 1, "JDoe", "dwe23321", null);
+		Staff updatedStaff = service.insert(staff);
+		return updatedStaff.getStaffId();
+	}
+	
+	@PostMapping("/staff/update")
+	public @ResponseBody int update(@RequestBody Staff staff) {
+		System.out.println("\nin update");
+		//Staff staff = new Staff("John1", "Doe", 1, "John@compmail.com", null, 2, 1, "JDoe", "dwe23321", null);
+		//staff.setStaffId(10);
+		Staff updatedStaff = service.update(staff);
+		return updatedStaff.getStaffId();
+	}
 	
 	@DeleteMapping("/staff/{id}")
 	public int delete(@PathParam("id") int id) {
