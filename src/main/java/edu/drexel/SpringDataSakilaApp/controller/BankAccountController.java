@@ -9,18 +9,21 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import edu.drexel.SpringDataSakilaApp.model.BankAccount;
-import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepo;
-import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepoImpl;
+import edu.drexel.SpringDataSakilaApp.service.BankAccountService;
 
 @Path("/bankaccounts")
 public class BankAccountController {
 	
+	@Autowired
+	private BankAccountService service;
+	
 	@GET
 	public List<BankAccount> getAll() {
 		System.out.println("\nin getAll");
-		BankAccountRepo dao = new BankAccountRepoImpl();
-		List<BankAccount> list = dao .getAll();
+		List<BankAccount> list = service.getAll();
 		return list;
 	}
 	
@@ -28,8 +31,7 @@ public class BankAccountController {
 	@Path("/{id}")
 	public BankAccount findByID(@PathParam("id") int id) {
 		System.out.println("\nin findByID");
-		BankAccountRepo dao = new BankAccountRepoImpl();
-		BankAccount bankAccount = dao.findByID(id);
+		BankAccount bankAccount = service.findByID(id);
 		System.out.println("bankAccount = " + bankAccount);
 		return bankAccount;
 		}
@@ -37,19 +39,17 @@ public class BankAccountController {
 	@PUT
 	public int insert(BankAccount bankAccount) {
 		System.out.println("\nin Insert");
-		BankAccountRepo dao = new BankAccountRepoImpl();
 		//BankAccount bankAccount = new BankAccount(5, "checking", 13321.22);
-		int bankAccountId = dao.insert(bankAccount);
+		int bankAccountId = service.insert(bankAccount);
 		return bankAccountId;
 	}
 	
 	@POST
 	public int update(BankAccount bankAccount) {
 		System.out.println("\nin update");
-		BankAccountRepo dao = new BankAccountRepoImpl();
 		//BankAccount bankAccount = new BankAccount(4, "checking", 10000);
 		//bankAccount.setAccountId(5);
-		int rowAffected = dao.update(bankAccount);
+		int rowAffected = service.update(bankAccount);
 		return rowAffected;
 	}
 	
@@ -57,16 +57,14 @@ public class BankAccountController {
 	@Path("/{id}")
 	public int delete(@PathParam("id") int id) {
 		System.out.println("\nin delete");
-		BankAccountRepo dao = new BankAccountRepoImpl();
-		int rowAffected = dao.delete(id);
+		int rowAffected = service.delete(id);
 		return rowAffected;
 	}
 	
 	//@POST
 	public void transfer(float amount, int accountFrom, int accountTo) {
 		System.out.println("\ntest transfer");
-		BankAccountRepo dao = new BankAccountRepoImpl();
-		int[] rowAffected = dao.transfer(amount, accountFrom, accountTo);
+		int[] rowAffected = service.transfer(amount, accountFrom, accountTo);
 				System.out.println(rowAffected[0] + ", " + rowAffected[1]);
 	}
 

@@ -3,9 +3,10 @@ package edu.drexel.SpringDataSakilaApp.JDBCsample;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import edu.drexel.SpringDataSakilaApp.model.BankAccount;
-import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepo;
-import edu.drexel.SpringDataSakilaApp.repo.BankAccountRepoImpl;
+import edu.drexel.SpringDataSakilaApp.service.BankAccountService;
 
 /**
  * JdbcSample app.
@@ -15,6 +16,10 @@ public class App {
     private static final int NBR_OF_INSERTS = 5000;
     private static int startKounter = 6;
 
+    @Autowired
+	private static BankAccountService service;
+	
+    
 	public static void main( String[] args ) {
         System.out.println( "App - starting ..." );
         long startTime = System.currentTimeMillis();
@@ -39,10 +44,10 @@ public class App {
 		long endTime = System.currentTimeMillis();
 		System.out.println("Elapsed time: "+ ((endTime - startTime) / 1000) + " seconds.");
     }
-
+	
+	
 	private static int insertBankAccount(List<BankAccount> accountList) {
-		BankAccountRepo dao = new BankAccountRepoImpl();
-		int bankAccountId = dao.insertList(accountList);
+		int bankAccountId = service.insertList(accountList);
 		return bankAccountId;
 	}
 }
