@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.drexel.SpringDataSakilaApp.model.BankAccount;
-import edu.drexel.SpringDataSakilaApp.service.BankAccountService;
+import edu.drexel.SpringDataSakilaApp.service.BankAccountServiceImpl;
 
 /**
  * JdbcSample app.
@@ -25,7 +25,7 @@ public class AppEx {
     private static int startKounter = 6;
 
     @Autowired
-	private static BankAccountService service;
+	private static BankAccountServiceImpl service;
     
 	public static void main( String[] args ) {
         System.out.println( "App - starting ..." );

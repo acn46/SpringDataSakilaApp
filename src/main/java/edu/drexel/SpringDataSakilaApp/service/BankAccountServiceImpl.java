@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import edu.drexel.SpringDataSakilaApp.model.BankAccount;
 
 //@Service
-public class BankAccountService {
+public class BankAccountServiceImpl {
 
 	public List<BankAccount> getAll() {
 		// TODO Auto-generated method stub

@@ -6,37 +6,38 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.drexel.SpringDataSakilaApp.model.Country;
-import edu.drexel.SpringDataSakilaApp.repo.CountryRepo;
+import edu.drexel.SpringDataSakilaApp.model.Film;
+import edu.drexel.SpringDataSakilaApp.repo.FilmRepo;
 
 @Service
-public class CountryService {
+public class FilmServiceImpl {
 	
 	@Autowired
-	private CountryRepo repo;
+	private FilmRepo repo;
 	
-	public List<Country> getAll() {
+	public List<Film> getAll() {
 		return repo.findAll();
 	}
 
-	public Optional<Country> findById(int id) {
+	public Optional<Film> findById(int id) {
 		// TODO Auto-generated method stub
 		return repo.findById(id);
 	}
 
-	public Country insert(Country country) {
+	public Film insert(Film film) {
 		// TODO Auto-generated method stub
-		return repo.save(country);
+		return repo.save(film);
 	}
 
-	public Country update(Country country) {
+	public Film update(Film film) {
 		// TODO Auto-generated method stub
-		return repo.save(country);
+		return repo.save(film);
 	}
 
 	public int delete(int id) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 
 }

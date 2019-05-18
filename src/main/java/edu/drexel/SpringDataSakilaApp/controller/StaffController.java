@@ -20,13 +20,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.drexel.SpringDataSakilaApp.model.Staff;
-import edu.drexel.SpringDataSakilaApp.service.StaffService;
+import edu.drexel.SpringDataSakilaApp.service.StaffServiceImpl;
 
 @RestController
 public class StaffController {
 	
 	@Autowired
-	private StaffService service;
+	private StaffServiceImpl service;
 	
 	@GetMapping("/staffs")
 	public List<Staff> getAll() {

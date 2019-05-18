@@ -6,40 +6,37 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.drexel.SpringDataSakilaApp.model.Category;
-import edu.drexel.SpringDataSakilaApp.model.City;
-import edu.drexel.SpringDataSakilaApp.repo.CategoryRepo;
-import edu.drexel.SpringDataSakilaApp.repo.CityRepo;
+import edu.drexel.SpringDataSakilaApp.model.Customer;
+import edu.drexel.SpringDataSakilaApp.repo.CustomerRepo;
 
 @Service
-public class CityService {
+public class CustomerServiceImpl {
 	
 	@Autowired
-	public CityRepo repo;
+	private CustomerRepo repo;
 	
-	public List<City> getAll() {
+	public List<Customer> getAll() {
 		return repo.findAll();
 	}
 
-	public Optional<City> findById(int id) {
+	public Optional<Customer> findById(int id) {
 		// TODO Auto-generated method stub
 		return repo.findById(id);
 	}
 
-	public City insert(City city) {
+	public Customer insert(Customer customer) {
 		// TODO Auto-generated method stub
-		return repo.save(city);
+		return repo.save(customer);
 	}
 
-	public City update(City city) {
+	public Customer update(Customer customer) {
 		// TODO Auto-generated method stub
-		return repo.save(city);
+		return repo.save(customer);
 	}
 
 	public int delete(int id) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-
 
 }

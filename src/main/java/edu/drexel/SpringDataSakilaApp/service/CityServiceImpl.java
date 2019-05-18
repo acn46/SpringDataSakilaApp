@@ -7,32 +7,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import edu.drexel.SpringDataSakilaApp.model.Category;
-import edu.drexel.SpringDataSakilaApp.model.Staff;
+import edu.drexel.SpringDataSakilaApp.model.City;
 import edu.drexel.SpringDataSakilaApp.repo.CategoryRepo;
+import edu.drexel.SpringDataSakilaApp.repo.CityRepo;
 
 @Service
-public class CategoryService {
+public class CityServiceImpl {
 	
 	@Autowired
-	public CategoryRepo repo;
+	public CityRepo repo;
 	
-	public List<Category> getAll() {
+	public List<City> getAll() {
 		return repo.findAll();
 	}
 
-	public Optional<Category> findById(int id) {
+	public Optional<City> findById(int id) {
 		// TODO Auto-generated method stub
 		return repo.findById(id);
 	}
 
-	public Category insert(Category category) {
+	public City insert(City city) {
 		// TODO Auto-generated method stub
-		return repo.save(category);
+		return repo.save(city);
 	}
 
-	public Category update(Category category) {
+	public City update(City city) {
 		// TODO Auto-generated method stub
-		return repo.save(category);
+		return repo.save(city);
 	}
 
 	public int delete(int id) {

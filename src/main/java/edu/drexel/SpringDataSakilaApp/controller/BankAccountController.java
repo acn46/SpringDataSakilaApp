@@ -12,13 +12,13 @@ import javax.ws.rs.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import edu.drexel.SpringDataSakilaApp.model.BankAccount;
-import edu.drexel.SpringDataSakilaApp.service.BankAccountService;
+import edu.drexel.SpringDataSakilaApp.service.BankAccountServiceImpl;
 
 @Path("/bankaccounts")
 public class BankAccountController {
 	
 	@Autowired
-	private BankAccountService service;
+	private BankAccountServiceImpl service;
 	
 	@GET
 	public List<BankAccount> getAll() {

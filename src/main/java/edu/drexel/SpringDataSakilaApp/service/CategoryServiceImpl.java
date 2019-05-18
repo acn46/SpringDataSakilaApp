@@ -6,37 +6,39 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.drexel.SpringDataSakilaApp.model.Category;
 import edu.drexel.SpringDataSakilaApp.model.Staff;
-import edu.drexel.SpringDataSakilaApp.repo.StaffRepo;
+import edu.drexel.SpringDataSakilaApp.repo.CategoryRepo;
 
 @Service
-public class StaffService {
-
-	@Autowired
-	private StaffRepo repo;
+public class CategoryServiceImpl {
 	
-	public List<Staff> getAll() {
+	@Autowired
+	public CategoryRepo repo;
+	
+	public List<Category> getAll() {
 		return repo.findAll();
 	}
 
-	public Optional<Staff> findById(int id) {
+	public Optional<Category> findById(int id) {
 		// TODO Auto-generated method stub
 		return repo.findById(id);
 	}
 
-	public Staff insert(Staff staff) {
+	public Category insert(Category category) {
 		// TODO Auto-generated method stub
-		return repo.save(staff);
+		return repo.save(category);
 	}
 
-	public Staff update(Staff staff) {
+	public Category update(Category category) {
 		// TODO Auto-generated method stub
-		return repo.save(staff);
+		return repo.save(category);
 	}
 
 	public int delete(int id) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 
 }

@@ -6,32 +6,32 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.drexel.SpringDataSakilaApp.model.Customer;
-import edu.drexel.SpringDataSakilaApp.repo.CustomerRepo;
+import edu.drexel.SpringDataSakilaApp.model.Staff;
+import edu.drexel.SpringDataSakilaApp.repo.StaffRepo;
 
 @Service
-public class CustomerService {
-	
+public class StaffServiceImpl {
+
 	@Autowired
-	private CustomerRepo repo;
+	private StaffRepo repo;
 	
-	public List<Customer> getAll() {
+	public List<Staff> getAll() {
 		return repo.findAll();
 	}
 
-	public Optional<Customer> findById(int id) {
+	public Optional<Staff> findById(int id) {
 		// TODO Auto-generated method stub
 		return repo.findById(id);
 	}
 
-	public Customer insert(Customer customer) {
+	public Staff insert(Staff staff) {
 		// TODO Auto-generated method stub
-		return repo.save(customer);
+		return repo.save(staff);
 	}
 
-	public Customer update(Customer customer) {
+	public Staff update(Staff staff) {
 		// TODO Auto-generated method stub
-		return repo.save(customer);
+		return repo.save(staff);
 	}
 
 	public int delete(int id) {
