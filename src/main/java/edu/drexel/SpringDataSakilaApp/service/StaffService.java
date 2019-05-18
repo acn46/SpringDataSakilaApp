@@ -7,14 +7,14 @@ import edu.drexel.SpringDataSakilaApp.model.Staff;
 
 public interface StaffService {
 
-	public List<Staff> getAll();
+	public List<Staff> getAll() throws ServiceException;
 	
-	public Optional<Staff> findById(int id);
+	public Optional<Staff> findById(int id) throws ServiceException;
 	
-	public Staff insert(Staff staff);
+	public Staff insert(Staff staff) throws ServiceException;
 	
-	public Staff update(Staff staff);
+	public Staff update(Staff staff) throws ServiceException;
 	
-	public int delete(int id);
+	public int delete(int id) throws ServiceException;
 	
 }

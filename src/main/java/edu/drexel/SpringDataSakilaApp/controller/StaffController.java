@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.drexel.SpringDataSakilaApp.model.Staff;
+import edu.drexel.SpringDataSakilaApp.service.ServiceException;
 import edu.drexel.SpringDataSakilaApp.service.StaffService;
 
 @RestController
@@ -26,7 +27,13 @@ public class StaffController {
 	@GetMapping("/staffs")
 	public List<Staff> getAll() {
 		System.out.println("\nin getAll");
-		List<Staff> list = service.getAll();
+		List<Staff> list = null;
+		try {
+			list = service.getAll();
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return list;
 
 	}
@@ -34,7 +41,13 @@ public class StaffController {
 	@GetMapping("/staff/{id}")
 	public Staff findByID(@PathVariable("id") int id) {
 		System.out.println("\nin findByID "+id);
-		Optional<Staff> returnValue = service.findById(id);
+		Optional<Staff> returnValue = null;
+		try {
+			returnValue = service.findById(id);
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return returnValue.get();
 	}
 	
@@ -42,7 +55,13 @@ public class StaffController {
 	public @ResponseBody int insert(@RequestBody Staff staff) {
 		System.out.println("\nin Insert");
 		//Staff newStaff = new Staff("John", "Doe", 1, "", "John@compmail.com", 2, 1, "JDoe", "dwe23321", null);
-		Staff updatedStaff = service.insert(staff);
+		Staff updatedStaff = null;
+		try {
+			updatedStaff = service.insert(staff);
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return updatedStaff.getStaffId();
 	}
 	
@@ -51,14 +70,26 @@ public class StaffController {
 		System.out.println("\nin update");
 		//Staff staff = new Staff("John1", "Doe", 1, "John@compmail.com", null, 2, 1, "JDoe", "dwe23321", null);
 		//staff.setStaffId(10);
-		Staff updatedStaff = service.update(staff);
+		Staff updatedStaff = null;
+		try {
+			updatedStaff = service.update(staff);
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return updatedStaff.getStaffId();
 	}
 	
 	@DeleteMapping("/staff/{id}")
 	public int delete(@PathParam("id") int id) {
 		System.out.println("\nin delete");
-		int rowAffected = service.delete(id);
+		int rowAffected = 0;
+		try {
+			rowAffected = service.delete(id);
+		} catch (ServiceException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return rowAffected;
 	}
 
