@@ -10,7 +10,7 @@ import edu.drexel.SpringDataSakilaApp.model.Film;
 import edu.drexel.SpringDataSakilaApp.repo.FilmRepo;
 
 @Service
-public class FilmServiceImpl {
+public class FilmServiceImpl implements FilmService {
 	
 	@Autowired
 	private FilmRepo repo;

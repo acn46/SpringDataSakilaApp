@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.drexel.SpringDataSakilaApp.model.Customer;
-import edu.drexel.SpringDataSakilaApp.service.CustomerServiceImpl;
+import edu.drexel.SpringDataSakilaApp.service.CustomerService;
 
 public class CustomerController {
 	@Autowired
-	private CustomerServiceImpl service;
+	private CustomerService service;
 	
 	@GetMapping("/customers")
 	public List<Customer> getAll() {

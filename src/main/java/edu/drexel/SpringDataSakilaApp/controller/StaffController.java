@@ -3,11 +3,6 @@ package edu.drexel.SpringDataSakilaApp.controller;
 import java.util.List;
 import java.util.Optional;
 
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.drexel.SpringDataSakilaApp.model.Staff;
-import edu.drexel.SpringDataSakilaApp.service.StaffServiceImpl;
+import edu.drexel.SpringDataSakilaApp.service.StaffService;
 
 @RestController
 public class StaffController {
 	
 	@Autowired
-	private StaffServiceImpl service;
+	private StaffService service;
 	
 	@GetMapping("/staffs")
 	public List<Staff> getAll() {

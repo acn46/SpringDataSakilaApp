@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.drexel.SpringDataSakilaApp.model.Country;
-import edu.drexel.SpringDataSakilaApp.service.CountryServiceImpl;
+import edu.drexel.SpringDataSakilaApp.service.CountryService;
 
 public class CountryController {
 	@Autowired
-	private CountryServiceImpl service;
+	private CountryService service;
 	
 	@GetMapping("/countries")
 	public List<Country> getAll() {

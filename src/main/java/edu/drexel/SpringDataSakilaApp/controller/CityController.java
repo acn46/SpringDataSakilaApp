@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.drexel.SpringDataSakilaApp.model.City;
-import edu.drexel.SpringDataSakilaApp.service.CityServiceImpl;
+import edu.drexel.SpringDataSakilaApp.service.CityService;
 
 public class CityController {
 
 	@Autowired
-	private CityServiceImpl service;
+	private CityService service;
 	
 	@GetMapping("/cities")
 	public List<City> getAll() {

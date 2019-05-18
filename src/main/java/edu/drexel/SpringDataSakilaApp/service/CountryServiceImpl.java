@@ -10,7 +10,7 @@ import edu.drexel.SpringDataSakilaApp.model.Country;
 import edu.drexel.SpringDataSakilaApp.repo.CountryRepo;
 
 @Service
-public class CountryServiceImpl {
+public class CountryServiceImpl implements CountryService {
 	
 	@Autowired
 	private CountryRepo repo;

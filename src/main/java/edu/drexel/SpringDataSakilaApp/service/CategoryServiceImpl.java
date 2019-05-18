@@ -11,7 +11,7 @@ import edu.drexel.SpringDataSakilaApp.model.Staff;
 import edu.drexel.SpringDataSakilaApp.repo.CategoryRepo;
 
 @Service
-public class CategoryServiceImpl {
+public class CategoryServiceImpl implements CategoryService {
 	
 	@Autowired
 	public CategoryRepo repo;

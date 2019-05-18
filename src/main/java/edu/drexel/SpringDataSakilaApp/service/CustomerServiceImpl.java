@@ -10,7 +10,7 @@ import edu.drexel.SpringDataSakilaApp.model.Customer;
 import edu.drexel.SpringDataSakilaApp.repo.CustomerRepo;
 
 @Service
-public class CustomerServiceImpl {
+public class CustomerServiceImpl implements CustomerService {
 	
 	@Autowired
 	private CustomerRepo repo;

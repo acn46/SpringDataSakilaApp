@@ -14,14 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.drexel.SpringDataSakilaApp.model.Category;
-import edu.drexel.SpringDataSakilaApp.model.Staff;
-import edu.drexel.SpringDataSakilaApp.service.CategoryServiceImpl;
-import edu.drexel.SpringDataSakilaApp.service.StaffServiceImpl;
+import edu.drexel.SpringDataSakilaApp.service.CategoryService;
 
 public class CategoryController {
 
 	@Autowired
-	private CategoryServiceImpl service;
+	private CategoryService service;
 	
 	@GetMapping("/categories")
 	public List<Category> getAll() {

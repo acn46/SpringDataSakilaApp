@@ -12,7 +12,7 @@ import edu.drexel.SpringDataSakilaApp.repo.CategoryRepo;
 import edu.drexel.SpringDataSakilaApp.repo.CityRepo;
 
 @Service
-public class CityServiceImpl {
+public class CityServiceImpl implements CityService {
 	
 	@Autowired
 	public CityRepo repo;
