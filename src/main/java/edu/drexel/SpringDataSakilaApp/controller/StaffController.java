@@ -81,7 +81,7 @@ public class StaffController {
 	}
 	
 	@DeleteMapping("/staff/{id}")
-	public int delete(@PathParam("id") int id) {
+	public int delete(@PathVariable("id") int id) {
 		System.out.println("\nin delete");
 		int rowAffected = 0;
 		try {

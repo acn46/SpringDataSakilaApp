@@ -6,63 +6,76 @@ const ReactDOM = require('react-dom');
 const client = require('./client');
 // end::vars[]
 
+const tableStyle={
+		border: '1px solid black'
+		}
+
+const trStyle = {
+		outline: 'thin solid',
+		background : 'CCC'
+}
+
 // tag::app[]
 class App extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {employees: []};
+		this.state = {
+			staffs: []
+		};
 	}
 
 	componentDidMount() {
-		client({method: 'GET', path: '/api/employees'}).done(response => {
-			this.setState({employees: response.entity._embedded.employees});
+		client({method: 'GET', path: '/sakila/staffs'}).done(response => {
+			this.setState({staffs: response.entity /* response.entity._embedded.staffs */  });
 		});
 	}
 
 	render() {
 		return (
-			<EmployeeList employees={this.state.employees}/>
+			<StaffList staffs={this.state.staffs}/>
 		)
 	}
 }
 // end::app[]
 
-// tag::employee-list[]
-class EmployeeList extends React.Component{
+// tag::staff-list[]
+class StaffList extends React.Component {
 	render() {
-		const employees = this.props.employees.map(employee =>
-			<Employee key={employee._links.self.href} employee={employee}/>
+		const staffs = this.props.staffs.map(staff =>
+			<Staff /* key={staff._links.self.href} */ staff={staff}/>
 		);
 		return (
-			<table>
+			<table style={tableStyle}>
 				<tbody>
-					<tr>
+					<tr style={trStyle}>
+						<th>Staff Id</th>
 						<th>First Name</th>
 						<th>Last Name</th>
-						<th>Description</th>
+						<th>Address Id</th>
 					</tr>
-					{employees}
+					{staffs}
 				</tbody>
 			</table>
 		)
 	}
 }
-// end::employee-list[]
+// end::staff-list[]
 
-// tag::employee[]
-class Employee extends React.Component{
+// tag::staff[]
+class Staff extends React.Component {
 	render() {
 		return (
-			<tr>
-				<td>{this.props.employee.firstName}</td>
-				<td>{this.props.employee.lastName}</td>
-				<td>{this.props.employee.description}</td>
+			<tr style={trStyle}>
+				<td>{this.props.staff.staffId}</td>
+				<td>{this.props.staff.firstName}</td>
+				<td>{this.props.staff.lastName}</td>
+				<td>{this.props.staff.addressId}</td>
 			</tr>
 		)
 	}
 }
-// end::employee[]
+// end::staff[]
 
 // tag::render[]
 ReactDOM.render(

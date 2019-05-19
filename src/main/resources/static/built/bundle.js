@@ -30303,8 +30303,16 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js"); // end::vars[]
-// tag::app[]
 
+
+var tableStyle = {
+  border: '1px solid black'
+};
+var trStyle = {
+  outline: 'thin solid',
+  background: 'CCC' // tag::app[]
+
+};
 
 var App =
 /*#__PURE__*/
@@ -30318,7 +30326,7 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(App).call(this, props));
     _this.state = {
-      employees: []
+      staffs: []
     };
     return _this;
   }
@@ -30330,76 +30338,85 @@ function (_React$Component) {
 
       client({
         method: 'GET',
-        path: '/api/employees'
+        path: '/sakila/staffs'
       }).done(function (response) {
         _this2.setState({
-          employees: response.entity._embedded.employees
+          staffs: response.entity
+          /* response.entity._embedded.staffs */
+
         });
       });
     }
   }, {
     key: "render",
     value: function render() {
-      return React.createElement(EmployeeList, {
-        employees: this.state.employees
+      return React.createElement(StaffList, {
+        staffs: this.state.staffs
       });
     }
   }]);
 
   return App;
 }(React.Component); // end::app[]
-// tag::employee-list[]
+// tag::staff-list[]
 
 
-var EmployeeList =
+var StaffList =
 /*#__PURE__*/
 function (_React$Component2) {
-  _inherits(EmployeeList, _React$Component2);
+  _inherits(StaffList, _React$Component2);
 
-  function EmployeeList() {
-    _classCallCheck(this, EmployeeList);
+  function StaffList() {
+    _classCallCheck(this, StaffList);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(EmployeeList).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(StaffList).apply(this, arguments));
   }
 
-  _createClass(EmployeeList, [{
+  _createClass(StaffList, [{
     key: "render",
     value: function render() {
-      var employees = this.props.employees.map(function (employee) {
-        return React.createElement(Employee, {
-          key: employee._links.self.href,
-          employee: employee
+      var staffs = this.props.staffs.map(function (staff) {
+        return React.createElement(Staff
+        /* key={staff._links.self.href} */
+        , {
+          staff: staff
         });
       });
-      return React.createElement("table", null, React.createElement("tbody", null, React.createElement("tr", null, React.createElement("th", null, "First Name"), React.createElement("th", null, "Last Name"), React.createElement("th", null, "Description")), employees));
+      return React.createElement("table", {
+        style: tableStyle
+      }, React.createElement("tbody", null, React.createElement("tr", {
+        style: trStyle
+      }, React.createElement("th", null, "Staff Id"), React.createElement("th", null, "First Name"), React.createElement("th", null, "Last Name"), React.createElement("th", null, "Address Id")), staffs));
     }
   }]);
 
-  return EmployeeList;
-}(React.Component); // end::employee-list[]
-// tag::employee[]
+  return StaffList;
+}(React.Component); // end::staff-list[]
+// tag::staff[]
 
 
-var Employee =
+var Staff =
 /*#__PURE__*/
 function (_React$Component3) {
-  _inherits(Employee, _React$Component3);
+  _inherits(Staff, _React$Component3);
 
-  function Employee() {
-    _classCallCheck(this, Employee);
+  function Staff() {
+    _classCallCheck(this, Staff);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Employee).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Staff).apply(this, arguments));
   }
 
-  _createClass(Employee, [{
+  _createClass(Staff, [{
     key: "render",
     value: function render() {
-      return React.createElement("tr", null, React.createElement("td", null, this.props.employee.firstName), React.createElement("td", null, this.props.employee.lastName), React.createElement("td", null, this.props.employee.description));
+      return React.createElement("tr", {
+        style: trStyle
+      }, React.createElement("td", null, this.props.staff.staffId), React.createElement("td", null, this.props.staff.firstName), React.createElement("td", null, this.props.staff.lastName), React.createElement("td", null, this.props.staff.addressId));
     }
   }]);
 
-  return Employee;
-}(React.Component); // end::employee[]
+  return Staff;
+}(React.Component); // end::staff[]
 // tag::render[]
 
 
